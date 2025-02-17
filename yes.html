@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(242, 202, 209);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 10px;
+        }
+        .imagecontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            flex: 1;
+        }
+        img {
+            width: 35vw;   /* Smaller GIF (35% of viewport width) */
+            max-width: 100%;
+            height: auto;
+        }
+        .letter-container {
+            display: none; /* Initially hidden */
+            background-color: white;
+            width: 80%;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .text {
+            font-size: 3vw; /* Smaller text */
+            font-weight: bold;
+            color: rgb(65, 25, 65);
+            max-width: 90%;
+            line-height: 1.5;
+            padding: 20px;
+        }
+        .heart-button {
+            background-color: #f06292;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            margin-top: 20px; /* Space between heart and text */
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .heart-button::before {
+            content: "♥";
+            font-size: 2rem;
+        }
+        .heart-button:hover {
+            background-color: #e91e63;
+        }
+        .button-text {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: rgb(65, 25, 65);
+            font-weight: bold;
+        }
+
+        /* Media Query for Small Screens */
+        @media (max-width: 768px) {
+            img {
+                width: 50vw;  /* Larger GIF size on smaller screens */
+            }
+
+            .text {
+                font-size: 4vw; /* Smaller text */
+            }
+
+            .heart-button {
+                padding: 20px;
+                font-size: 1.5rem;
+            }
+
+            .button-text {
+                font-size: 1.2rem;
+            }
+
+            .letter-container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+
+        /* Media Query for Extra Small Screens */
+        @media (max-width: 480px) {
+            img {
+                width: 60vw; /* Even larger GIF size on very small screens */
+            }
+
+            .text {
+                font-size: 5vw; /* Even smaller text */
+            }
+
+            .heart-button {
+                padding: 18px;
+                font-size: 1.5rem;
+            }
+
+            .button-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="imagecontainer">
+        <img src="kiss.gif" alt="asking">
+    </div>
+
+    <button class="heart-button" onclick="openLetter()"></button>
+    <div class="button-text">Click Me</div>
+    
+    <div class="letter-container" id="letter">
+        <div class="text">
+            <i>DUMB CONVERSATIONS... WE LOSE TRACK OF TIME...<br>
+            HAVE I TOLD YOU LATELY... I AM GRATEFUL YOU ARE MINE ❤️❤️</i>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            const letter = document.getElementById("letter");
+            const heartButton = document.querySelector(".heart-button");
+
+            letter.style.display = "block"; // Show the letter when the heart button is clicked
+            heartButton.style.display = "none"; // Hide the heart button after it's clicked
+        }
+    </script>
+</body>
+</html>

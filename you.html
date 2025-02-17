@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Baby</title>
+    <style>
+        body {
+            background-color: rgb(246, 215, 220);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .imagecontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .imagecontainer img {
+            height: 55vh; /* Increased size */
+            max-width: 90vw; /* Ensures it scales properly on small screens */
+        }
+        h1 {
+            color: rgb(24, 24, 70);
+            text-align: center;
+            font-size: 6vw;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .ques {
+            font-size: 5vw; 
+            padding: 10px 20px; 
+            background-color: #3f57b5; 
+            color: white;
+            border: none;
+            border-radius: 8px; 
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .ques:hover {
+            background-color: #1a4a8e;
+        }
+        @media (max-width: 768px) {
+            .imagecontainer img {
+                height: 50vh; /* Adjusted for mobile */
+            }
+            .ques {
+                font-size: 6vw;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="imagecontainer">
+        <img src="prop.gif" alt="asking">
+    </div>
+    <h1>WILL YOU BE MINE?</h1>
+    <div class="container">
+        <button class="ques" id="yes">YES</button>
+        <button class="ques" id="no">NO</button>
+    </div>
+    
+    <script>
+        const yesButton = document.getElementById("yes");
+        const noButton = document.getElementById("no");
+
+        noButton.addEventListener("click", () => {
+            let noSize = parseFloat(window.getComputedStyle(noButton).fontSize);
+            let yesSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+
+            if (noSize > 10) {  
+                noButton.style.fontSize = `${noSize - 2}px`;
+                noButton.style.padding = `${noSize - 4}px ${noSize}px`;
+                
+                yesButton.style.fontSize = `${yesSize + 2}px`;
+                yesButton.style.padding = `${yesSize + 4}px ${yesSize + 6}px`;
+            } else {
+                noButton.style.visibility = "hidden";
+            }
+        });
+
+        yesButton.addEventListener("click", () => {
+            window.location.href = "yes.html";
+        });
+    </script>
+</body>
+</html>
